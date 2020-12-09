@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace SimpleFactory
 {
@@ -6,7 +7,8 @@ namespace SimpleFactory
     {
         static void Main(string[] args)
         {
-            Method method = CalculatorFactory.GetMethod("+");
+            string type = ConfigurationManager.AppSettings["MethodConfig"];
+            Method method = CalculatorFactory.GetMethod(type);
             method.NumberA = 0.5;
             method.NumberB = 0.3;
             double result = method.GetResult();
