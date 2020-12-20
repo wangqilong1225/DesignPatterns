@@ -27,27 +27,19 @@ namespace SQLFactoryDemo
             #endregion
 
             #region 抽象工厂+简单工厂
-            string db = "SQLServer";
-            IFactory factory = DataFactory.GetDataDBFactory(db); 
+            //string db = "SQLServer";
+            //IFactory factory = DataFactory.GetDataDBFactory(db); 
             #endregion
+            //IUser user = factory.CreatUser();
 
-
-            IUser user = factory.CreatUser();
+            //反射
+            IUser user = DataAcess.GetUser();
             user.Insert(new User
             {
                 Id = 1,
                 Name = ""
             });
             user.GetUser(1);
-
-            //反射
-            //IUser user = (IUser)Assembly.Load("SQLFactoryDemo").CreateInstance("SQLFactoryDemo.Interface.SQLServerUser");
-            //user.Insert(new User
-            //{
-            //    Id = 1,
-            //    Name=""
-            //}) ;
-            //user.GetUser(1);
             Console.ReadKey();
         }
     }

@@ -7,7 +7,9 @@ namespace SQLFactoryDemo.Factory
 {
     public class DataFactory
     {
-        public static IFactory GetDataDBFactory(string DBName) {
+        #region 简单工厂
+        public static IFactory GetDataDBFactory(string DBName)
+        {
             IFactory factory = null;
             switch (DBName)
             {
@@ -21,6 +23,7 @@ namespace SQLFactoryDemo.Factory
                     throw new Exception("暂不兼容其他数据库!");
             }
             return factory;
-        }
+        } 
+        #endregion
     }
 }
