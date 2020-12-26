@@ -16,6 +16,11 @@ namespace PrototypePatternDemo
             work = new WorkExperience();
         }
 
+        public Resume(WorkExperience work)
+        {
+            this.work = (WorkExperience)work.Clone();
+        }
+
         //设置个人信息
         public void SetPersonInfo(string sex,int age) {
             this.Sex = sex;
@@ -34,7 +39,11 @@ namespace PrototypePatternDemo
         }
 
         public Object Clone() {
-            return this.MemberwiseClone();
+            Resume resume = new Resume(this.work);
+            resume.Name = this.Name;
+            resume.Sex = this.Sex;
+            resume.Age = this.Age;
+            return resume;
         }
     }
 }

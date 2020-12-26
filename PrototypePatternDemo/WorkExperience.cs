@@ -8,5 +8,9 @@ namespace PrototypePatternDemo
     {
         public string WorkDate { get; set; }
         public string CompanyName { get; set; }
+        public Object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
